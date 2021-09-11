@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<%- include('../components/header'); %>
+</body>
+<div class="container">
+    <div class="row">
+    
+        <div class="col">
+          <div class="row mt-5">
+            <div class="col-6">  
+                <h1>Lista de Professores</h1>
+            </div>  
+
+            <div class="col-6 text-right">
+                <a href="/cadastrarProfessor" class="btn btn-primary my-3 text-center">Inserir Professor</a>  
+            </div>
+          </div>
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome: </th>
+                        <th>Registro: </th>
+                        <th>Disciplina: </th>
+                        <th>Qtd. horas: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(professores == "" ){ %>
+                        <tr>
+                            <td colspan="5" class="alert-warning">Nenhum professor cadastrado</td>
+                        </tr>
+                    <% } else{ %>
+                        <% professores.map(professor =>{ %>
+                        <tr>
+                            <td><%= professor.nome %></td>
+                            <td><%= professor.registro %></td>
+                            <td><%= professor.disciplina %></td>
+                            <td><%= professor.qtdHoras %></td>
+                            <td>
+                                <a href="/atualizarProfessor<%= professor._id %>" class="btn btn-sm btn-success">Editar</a>
+                                <a href="/deletarProfessor<%= professor._id %>" class="btn btn-sm btn-danger"> Excluir</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>  
+  </div>
+    <%- include('../components/footer'); %>
+</body>
+</html>

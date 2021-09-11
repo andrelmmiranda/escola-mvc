@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../components/header'); %>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row mt-5">
+                    <div class="col-6"> 
+                        <h1>Cadastrar Professor</h1>
+                    </div>   
+                    <div class="col-6 text-right">
+                        <a href="/listarProfessores" class="btn btn-primary my-3 text-center">Lista de Professores</a> 
+                    </div>
+                </div>
+                <form class="mt-4" action="/cadastrarProfessor" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: José Lúcio">
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Registro.</label>
+                        <input type="text" class="form-control" id="registro" name="registro" placeholder="Ex.: 12345" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Disciplina</label>
+                        <input type="text" class="form-control" id="disciplina" name="disciplina" placeholder="Ex.: História">
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Qtd. horas</label>
+                        <input type="text" class="form-control" id="qtdHoras" name="qtdHoras" placeholder="Ex.: 40" maxlength="3">
+                    </div>
+                    <button type="submit" class="btn btn-primary" disabled>Enviar</button>
+                </form>   
+            </div>
+        </div>
+    </div>
+    <%- include('../components/footer'); %>
+</body>
+</html>
